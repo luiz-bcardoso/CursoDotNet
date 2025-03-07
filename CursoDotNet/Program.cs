@@ -11,6 +11,18 @@
 
             Console.WriteLine();
             manipuladorDataAtual(new DateTime());
+
+            //Console.WriteLine();
+            //EstruturaDados.ExercicioListaAlunos();
+
+            //Console.WriteLine();
+            //EstruturaDados.ExercicioGlicemia();
+
+            Console.WriteLine();
+            EstruturaDados.ExercicioListaRecorrente();
+
+            Console.WriteLine();
+            EstruturaDados.ExercicioListaRecorrente();
         }
 
         static void greeter()
