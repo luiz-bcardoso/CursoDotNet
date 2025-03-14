@@ -1,9 +1,12 @@
-﻿namespace CursoDotNet
+﻿using System.Diagnostics;
+
+namespace CursoDotNet
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            Stopwatch relogio = new Stopwatch();
             greeter();
 
             Console.WriteLine();
@@ -18,11 +21,24 @@
             //Console.WriteLine();
             //EstruturaDados.ExercicioGlicemia();
 
-            Console.WriteLine();
-            EstruturaDados.ExercicioListaRecorrente();
+            List<int> listaA = EstruturaDados.PopulaListaInteiro(100000);
+            List<int> listaB = EstruturaDados.PopulaListaInteiro(100000);
 
-            Console.WriteLine();
-            EstruturaDados.ExercicioListaRecorrente();
+            Console.WriteLine("------ Lista Recorrente O(n^2) ------");
+            relogio.Start();
+            EstruturaDados.ExercicioListaRecorrente(listaA, listaB);
+            relogio.Stop();
+            Console.WriteLine("Tempo de execução: " + relogio.ElapsedMilliseconds + "ms");
+            relogio.Reset();
+            Console.WriteLine("-------------------------------------");
+
+            Console.WriteLine("------- Lista Recorrente O(n) ------");
+            relogio.Start();
+            EstruturaDados.ExercicioListaRecorrenteOtimizado(listaA, listaB);
+            relogio.Stop();
+            Console.WriteLine("Tempo de execução: " + relogio.ElapsedMilliseconds + "ms");
+            relogio.Reset();
+            Console.WriteLine("-------------------------------------");
         }
 
         static void greeter()

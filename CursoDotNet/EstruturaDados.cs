@@ -157,36 +157,39 @@ namespace CursoDotNet
             return moda;
         }
 
-        public static void ExercicioListaRecorrente()
+        public static List<int> PopulaListaInteiro(int tamanhoLista)
         {
-            List<int> listaA = new List<int>();
-            List<int> listaB = new List<int>();
-            List<int> listaAB = new List<int>();
-
+            List<int> lista = new List<int>();
             Random gerador = new Random();
+            lista.Capacity = tamanhoLista;
+
+            while(lista.Count < tamanhoLista)
+            {
+                lista.Add(gerador.Next(1, 100));
+            }
+
+            return lista;
+        }
+
+        public static void ExercicioListaRecorrente(List<int> listaA, List<int> listaB)
+        {
+            HashSet<int> listaAB = new HashSet<int>();
+
+            //Console.Write("ListaA : ");
+            //foreach(int valorA in listaA)
+            //{
+            //    Console.Write("["+valorA+"] ,");
+            //}
             
-            //Popula as duas listas randomicamente 1-100, 100 vezes.
-            for(int i = 0; i < 10; i++)
-            {
-                listaA.Add(gerador.Next(1, 100));
-                listaB.Add(gerador.Next(1, 100));
-            }
+            //Console.WriteLine();
 
-            Console.WriteLine("ListaA");
-            foreach(int valorA in listaA)
-            {
-                Console.Write("["+valorA+"] ,");
-            }
-            
-            Console.WriteLine();
+            //Console.Write("ListaB : ");
+            //foreach (int valorB in listaB)
+            //{
+            //    Console.Write("[" + valorB + "] ,");
+            //}
 
-            Console.WriteLine("ListaB");
-            foreach (int valorB in listaB)
-            {
-                Console.Write("[" + valorB + "] ,");
-            }
-
-            Console.WriteLine();
+            //Console.WriteLine();
 
             //Cria uma nova lista com a ocorrencia das duas listas.
             //BigO(n^2)
@@ -200,38 +203,23 @@ namespace CursoDotNet
                     }
                 }
             }
-            Console.WriteLine("Valores que aparecem na lista A e B: ");
+            listaAB = new HashSet<int>(listaAB.OrderBy(x => x));
+            Console.Write("Lista A∩B: ");
             foreach (int valor in listaAB)
             {  
                 Console.Write("["+valor+"] ,");
             }
+            Console.WriteLine();
         }
 
-        public static void ExercicioListaRecorrenteOtimizado()
+        public static void ExercicioListaRecorrenteOtimizado(List<int> listaA, List<int> listaB)
         {
-            List<int> listaA = new List<int>();
-            List<int> listaB = new List<int>();
-            HashSet<int> listaAB = new HashSet<int>(); // Usamos HashSet para evitar duplicatas
+            // Utiliza HashSet para evitar duplicatas
+            HashSet<int> listaAB = new HashSet<int>();
 
-            Random gerador = new Random();
-
-            // Popula as duas listas randomicamente 1-100, 10 vezes
-            // Usando capacidade inicial para evitar realocações
-            listaA.Capacity = 10;
-            listaB.Capacity = 10;
-
-            for (int i = 0; i < 10; i++)
-            {
-                listaA.Add(gerador.Next(1, 100));
-                listaB.Add(gerador.Next(1, 100));
-            }
-
-            // Impressão das listas usando string.Join para melhor performance
-            Console.WriteLine("ListaA");
-            Console.WriteLine("[" + string.Join("] ,", listaA.Select(x => $"[{x}]")) + "]");
-
-            Console.WriteLine("ListaB");
-            Console.WriteLine("[" + string.Join("] ,", listaB.Select(x => $"[{x}]")) + "]");
+            // Impressão das listas usando string.Join e lista.Select para melhor performance
+            //Console.WriteLine("ListaA : [" + string.Join("] ,", listaA.Select(x => $"[{x}]")) + "]");
+            //Console.WriteLine("ListaB : [" + string.Join("] ,", listaB.Select(x => $"[{x}]")) + "]");
 
             // Converte listaA para HashSet para busca O(1)
             HashSet<int> setA = new HashSet<int>(listaA);
@@ -244,9 +232,8 @@ namespace CursoDotNet
                     listaAB.Add(valor);
                 }
             }
-
-            Console.WriteLine("Valores que aparecem na lista A e B: ");
-            Console.WriteLine("[" + string.Join("] ,", listaAB.Select(x => $"[{x}]")) + "]");
+            listaAB = new HashSet<int>(listaAB.OrderBy(x => x));
+            Console.WriteLine("Lista A∩B: [" + string.Join("] ,", listaAB.Select(x => $"[{x}]")) + "]");
         }
     }
 }
