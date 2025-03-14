@@ -48,9 +48,9 @@ namespace CursoDotNet
             Console.WriteLine("Hello, " + nome.ToUpper() + "!");
         }
 
-        static void contador(int n1, int n2)
+        static void contador(int n1, int n2, char opt)
         {
-            double res = 3/2;
+            double res = 0;
 
             res = n1 + n2;
             Console.WriteLine(n1 + " + " + n2 + " = " + res);
