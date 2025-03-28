@@ -16,8 +16,13 @@ namespace CursoDotNet
             manipuladorDataAtual(new DateTime());
 
             Console.WriteLine();
-            EstruturaDadosExercicio edx = new EstruturaDadosExercicio();
-            edx.CadastraPessoas();
+            DateTime dt = DateTime.Now;
+            Pessoa p1 = new Pessoa("Mauricio Pereira Braga", "01139325577", "811753304", dt);
+            Console.WriteLine(p1);
+
+            //Console.WriteLine();
+            //EstruturaDadosExercicio edx = new EstruturaDadosExercicio();
+            //edx.CadastraPessoas();
 
             //Console.WriteLine();
             //EstruturaDados.ExercicioListaAlunos();
