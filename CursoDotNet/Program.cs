@@ -10,10 +10,14 @@ namespace CursoDotNet
             greeter();
 
             Console.WriteLine();
-            contador(5, 2);
+            contador(5, 2, 'd');
 
             Console.WriteLine();
             manipuladorDataAtual(new DateTime());
+
+            Console.WriteLine();
+            EstruturaDadosExercicio edx = new EstruturaDadosExercicio();
+            edx.CadastraPessoas();
 
             //Console.WriteLine();
             //EstruturaDados.ExercicioListaAlunos();
@@ -21,6 +25,7 @@ namespace CursoDotNet
             //Console.WriteLine();
             //EstruturaDados.ExercicioGlicemia();
 
+            /*
             List<int> listaA = EstruturaDados.PopulaListaInteiro(100000);
             List<int> listaB = EstruturaDados.PopulaListaInteiro(100000);
 
@@ -39,6 +44,7 @@ namespace CursoDotNet
             Console.WriteLine("Tempo de execução: " + relogio.ElapsedMilliseconds + "ms");
             relogio.Reset();
             Console.WriteLine("-------------------------------------");
+            */
         }
 
         static void greeter()

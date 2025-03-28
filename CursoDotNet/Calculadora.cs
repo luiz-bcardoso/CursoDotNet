@@ -8,7 +8,7 @@ namespace CursoDotNet
 {
     internal class Calculadora
     {
-        static void calcular(int n1, int n2)
+        static void calcular(int n1, int n2, char opt)
         {
             double res = 0;
 
@@ -30,10 +30,11 @@ namespace CursoDotNet
                         break;
                     case '/':
                         res = n1 / n2;
-                        Console.WriteLine(n1 + " / " + n2 + " = " + res.toString("N2"));
+                        Console.WriteLine(n1 + " / " + n2 + " = " + res.ToString("N2"));
                         break;
                     default:
                         Console.WriteLine("Opção Inválida!");
+                        break;
                 }
             } 
         }
