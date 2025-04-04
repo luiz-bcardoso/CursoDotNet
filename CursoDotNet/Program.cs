@@ -20,6 +20,10 @@ namespace CursoDotNet
             Pessoa p1 = new Pessoa("Mauricio Pereira Braga", "01139325577", "811753304", dt);
             Console.WriteLine(p1);
 
+            Console.WriteLine();
+            abstracaoHeranca(new Cachorro("Caramelo"), 
+                             new Gato("Zacarias"));
+
             //Console.WriteLine();
             //EstruturaDadosExercicio edx = new EstruturaDadosExercicio();
             //edx.CadastraPessoas();
@@ -81,6 +85,19 @@ namespace CursoDotNet
             dt = DateTime.Now;
             Console.WriteLine("Hoje é o dia "+dt.Day+ ", e agora são "+dt.Hour+" horas e "+dt.Minute+" minutos.");
             Console.WriteLine("Estamos no mês "+dt.Month+ " do ano de "+dt.Year+".");
+        }
+
+        static void abstracaoHeranca(Cachorro c, Gato g)
+        {
+            c.Raca = "SRD";
+
+            Console.WriteLine("Nome do dog é " + c.Nome + ", ele é da raça " + c.Raca + " e ele faz '" + c.emitirSom() + "'.");
+            Console.WriteLine(c.caminhar());
+
+            Console.WriteLine("Ganhei um gato e dei o nome de " + g.Nome + ", ele na hora que eu falei ele fez " + g.emitirSom() + ".");
+            Console.WriteLine("Eu: Salve gato");
+            Console.WriteLine(g.Nome + ": " + g.ronronar());
+            Console.WriteLine(g.caminhar());
         }
     }
 }
